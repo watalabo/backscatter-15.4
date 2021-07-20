@@ -1,0 +1,36 @@
+;
+; 結線パラメータ（BACKSCATTER_TAG_ANT_DBG.PTN）
+;
+[PatternLine]
+DCode = 25
+DCode = 32
+DCode = 33
+DCode = 35
+DCode = 36
+DCode = 39
+DCode = 48
+DCode = 54
+DCode = 62
+
+[PatternVia]
+StackCode = 7
+StackCode = 8
+StackCode = 12
+
+[PatternTaper]
+LandEnabled = 0
+PadEnabled = 0
+PtnEnabled = 0
+LandLength = 2
+PadLength = 2
+PtnLength = 2
+LandWidth = 0
+PadWidth = 0
+PtnWidth = 0
+LandMinimumWidth = 2
+PadMinimumWidth = 2
+PtnMinimumWidth = 1
+LandType = 0
+PadType = 0
+PtnType = 0
+

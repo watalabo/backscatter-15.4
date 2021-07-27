@@ -8,7 +8,7 @@ CADLUS XのCOMPファイル、部品表、部品配置図を準備してP版.com
 以下の様に3枚のボードで構成しています。
 
 ![左から①Backscatter\_TAG\_Ant\_Dbgボード(SMAコネクタ実装)、②Backscatter\_Mainボード、③Backscatter\_TAG\_Ant\_Dbgボード(部品無し)](media/image1.jpeg "左から①Backscatter\_TAG\_Ant\_Dbgボード(SMAコネクタ実装)、②Backscatter\_Mainボード、③Backscatter\_TAG\_Ant\_Dbgボード(部品無し)")
-
+左から①Backscatter\_TAG\_Ant\_Dbgボード(SMAコネクタ実装)、②Backscatter\_Mainボード、③Backscatter\_TAG\_Ant\_Dbgボード(部品無し)
 
 ①はSMAコネクタ実装したボード、②チップアンテナを実装したボード、②Mainボードに実装したマイコンへのプログラム書き込みとデバッグ用コネクタを実装したボードの3種類を製作しています。(写真はSMAコネクタを実装したボードです)
 

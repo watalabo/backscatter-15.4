@@ -33,8 +33,7 @@ Backscatter\_TAG\_Ant\_Dbgボード(SMAコネクタ実装)、Backscatter\_Main�
 
 　SP3TスイッチとSMAコネクタ又はアンテナとの間は、U.FLコネクタを介して、ヒロセ電機製U.FLケーブルアセンブリ：U.FL-2LP(V)-04N1-A-(35)を用いて接続します。
 
-![](media/image4.jpeg){width="5.895833333333333in"
-height="4.423611111111111in"}
+![](media/image4.jpeg)
 
 Backscatter\_TAG\_Mainボードに搭載したマイクロコンピュータSTM32F446REへのプログラムの書き込みは、NUCLEO-F446REを用いて行います。NUCLEO-F446REとCN2:デバッガ用コネクタを接続している6芯のケーブルは、秋月電子通商や共立電子産業など種々販売店から入手出来ます。
 
@@ -106,23 +105,21 @@ example、プログラム名：任意の名称で新しいプログラムの作�
 
 ファームウエアのソースコードファイル：Backscatter\_TAG\_NoAck.cpp
 
-![](media/image5.jpeg){width="5.9in" height="3.35in"}
+![](media/image5.jpeg)
 
 　TAG\_CW\_Txは指定した周波数と電力で無変調の連続波を発生します。TAG\_Rxは指定した周波数でIEEE802.15.4形式のパケットを受信します。TAG\_CW\_TxとTAG\_Rxの周波数は一定の周波数差で同期して指定時間毎に変更することが出来ます。
 
 (1)Backscatter\_TAGは電源がONになると、時刻・センサー情報をIEEE802.15.4形式Backscatter通信のパケットを送信します。ブロードキャスト・パケットで内容は以下です。
 
-![](media/image6.jpeg){width="5.9in" height="0.36666666666666664in"}
+![](media/image6.jpeg)
 
 (2)次に、以下の内容の時刻設定パケットの受信を待ちます。1秒間待って時刻設定パケットを受信しない場合は、20秒間スリーブして(1)に戻ります。
 
-![](media/image7.jpeg){width="5.033333333333333in"
-height="0.4083333333333333in"}
+![](media/image7.jpeg)
 
 (3)次に、時刻・センサー情報を送信して以下の内容のAlarm設定パケットの受信を待ちます。「1秒×(32ビット疑似乱数÷32ビット整数の最大値)＋0.1秒」待ってAlarm設定パケットを受信しない場合は再度、時刻・センサー情報を送信します。
 
-![](media/image8.jpeg){width="5.898611111111111in"
-height="0.38680555555555557in"}
+![](media/image8.jpeg)
 
 「Sens Alarm 間隔」は、10、30、60又は60の倍数で10進7桁まで設定可能です。
 
@@ -157,8 +154,7 @@ C++Bilderの最新バージョンはアカデミックであれば、1年間無�
 
 この実行ファイルをダブルクリックするだけで動作します。
 
-![](media/image9.png){width="5.901388888888889in"
-height="3.4430555555555555in"}
+![](media/image9.png)
 
 (1) COMポートの選択、
 

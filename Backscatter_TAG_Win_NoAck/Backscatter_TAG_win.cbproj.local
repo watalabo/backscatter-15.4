@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/03/18 11:33:43.000.986,=C:\Users\kizak\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2021/03/18 11:34:59.000.907,=C:\Users\kizak\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2021/03/18 11:35:26.000.664,C:\Users\kizak\Documents\RAD Studio\Projects\Unit1.cpp=C:\Users\kizak\Desktop\u_OSAKA_Dev\BackscatterTAG\Backscatter_TAG_Win\Unit1.cpp</Transaction>
+    <Transaction>2021/03/18 11:35:26.000.664,C:\Users\kizak\Documents\RAD Studio\Projects\Unit1.h=C:\Users\kizak\Desktop\u_OSAKA_Dev\BackscatterTAG\Backscatter_TAG_Win\Unit1.h</Transaction>
+    <Transaction>2021/03/18 11:35:26.000.664,C:\Users\kizak\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\kizak\Desktop\u_OSAKA_Dev\BackscatterTAG\Backscatter_TAG_Win\Unit1.dfm</Transaction>
+    <Transaction>2021/03/18 11:35:59.000.463,C:\Users\kizak\Documents\RAD Studio\Projects\Project1.cbproj=C:\Users\kizak\Desktop\u_OSAKA_Dev\BackscatterTAG\Backscatter_TAG_Win\Backscatter_TAG_win.cbproj</Transaction>
+  </Transactions>
+</BorlandProject>

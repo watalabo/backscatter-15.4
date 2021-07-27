@@ -1,4 +1,4 @@
-IEEE802.15.4\_Backscatter\_TAG\_2.0
+１．IEEE802.15.4\_Backscatter\_TAG\_2.0ハードウエア
 
 無償の回路図設計CAD であるCADLUS
 Circuit及び無償のプリント基板設計CADであるCADLUS
@@ -32,6 +32,8 @@ height="3.7430555555555554in"}
 
 ボードの内部の構成を以下に示します。
 
+![](media/image3.jpeg){width="5.908333333333333in" height="4.15in"}
+
 制御用のARMベースマイクロコンピュータSTM32F446RE、IEEE802.15.4トランシーバCC2520、Backscatter変調と受信切替用のSP3Tスイッチ及びリチウムイオン電池を用いた電源回路で構成され、SMAコネクタを介した外付けのアンテナや内臓のチップアンテナを接続可能です。
 
 　リチウムイオン電池への充電はMicroUSBコネクタをパソコンやUSB-HUB等に接続して行います。
@@ -45,51 +47,63 @@ Backscatter\_TAG\_Mainボードに搭載したマイクロコンピュータSTM3
 
 NUCLEO-F446REのCN2（ST-LINK）のジャンパーピン2個は取り外して使用します。
 
-プログラム開発時にシリアルIFを用いて情報の入出力(printf文など)を、FTDI社製
+プログラム開発時にシリアルIFを用いた情報の入出力(printf文など)を、FTDI社製
 TTL-232R-3V3
 USBシリアル変換ケーブルでパソコンと接続し、パソコン上のハイパーターミナルソフト(Teratermなど)を用いて行えるようにしています。
 
 設計データ　
 
-(1) BackscatterTAG\_Main接続図(pdf)
+(1) BackscatterTAG\_Main接続図：Backscatter\_TAG\_Main\_Scheme.pdf
 
-(2) BackscatterTAG\_Ant\_Dbg接続図(pdf)
+(2) BackscatterTAG\_Ant\_Dbg接続図：Backscatter\_TAG\_Ant\_Dbg\_Scheme.pdf
 
-(3) CADLUS Circuit用ライブラリ
+(3) CADLUS Circuit用ライブラリ:Backscatter\_TAG\_Circut\_LIBホルダー
 
 この基板の設計のために部品を追加したライブラリファイルです。元のファイルと
 
 置き換えて下さい
 
-\(4) CADLUS Circuit接続図ファイル
+(4) CADLUS Circuit接続図ファイル：
+
+> Backscatter\_TAG\_Main.drw
+>
+> Backscatter\_TAG\_Ant\_Dbg.drw
 
 　　
 
-\(5) CADLUS X基板設計データ
+(5) CADLUS X基板設計データ
 
-　
+> Backscatter\_TAG\_Main\_PWBホルダー
+>
+> Backscatter\_TAG\_Ant\_Dbg\_PWBホルダー
 
 \(6) CADLUS X COMPデータ
 
 　P版.comに基板製造と部品実装を依頼するときに必要なデータです。
 
-　　
+　　BACKSCATTER\_TAG\_MAIN.COMP
+
+　　BACKSCATTER\_TAG\_ANT\_DBG.COMP
 
 (7)部品表データ
 
 　P版.com指定フォーマットで作成しています。このデータを用いてP版.comに部品実装と部品調達を依頼することが出来ます。
 
-　Backscatter\_TAG\_Ant\_Dbgボードは、搭載する部品によってSMAコネクタボード、チップアンテナボード、デバック・コネクタボードの3種になります。各ボードのBackscatter\_TAG\_Ant\_Dbg\_Parts.xls中の搭載しない部品を「未実装」にして下さい。
+Backscatter\_TAG\_Main\_Parts.xls
 
-　　　　　
+Backscatter\_TAG\_Ant\_Dbgボードは、搭載する部品によってSMAコネクタボード、チップアンテナボード、デバック・コネクタボードの3種になります。各ボードのBackscatter\_TAG\_Ant\_Dbg\_Parts.xls中の搭載しない部品を「未実装」にして下さい。
+
+　Backscatter\_TAG\_Ant\_Dbg\_Parts.xls
 
 (8)部品配置図
 
 　P版.comに部品実装を依頼するときに必要な図です。
 
-　　
+Backscatter\_TAG\_Main\_Assy.pdf
 
-ファームウエア　
+　Backscatter\_TAG\_Ant\_Dbg\_Assy.pdf
+
+２．Backscatter\_TAG\_NoAck動作ファームウエア
 
 　Backscatter\_TAG\_Mainボードに搭載のマイクロコンピュータ：STM32F446REのファームウエアの開発には無償のクラウド型開発環境であるmbedを使用しています。
 
@@ -97,28 +111,30 @@ USBシリアル変換ケーブルでパソコンと接続し、パソコン上�
 Internal Temperature Sensor reading
 example、プログラム名：任意の名称で新しいプログラムの作成を行っで出来た新しいワークスペース上のmain.cppの内容を書き換えると、これから紹介するファームウエアを利用できます。
 
-Backscatter\_TAG\_NoAck動作ファームウエア
+ファームウエアのソースコードファイル：Backscatter\_TAG\_NoAck.cpp
 
-　このファームウエアは、LAUNCHXL-CC1352Pに「Backscatter TAG用
-簡易シグナルジェネレータ」ファームウエアを搭載したTAG\_CW\_Tx、「Backscatter
-TAG用
-IEEE802.15.4パケット送信」ファームウエアを搭載したTAG\_Cont\_Tx、「Backscatter
-TAG用IEEE802.15.4パケット受信」ファームウエアを搭載したTAG\_RxをパソコンとUSB接続して、パソコンに搭載したBackscatter\_TAG\_NoAck\_Winソフトウエアで制御することを前提に作成しています。
-
-　
+![](media/image5.jpeg){width="5.9in" height="3.35in"}
 
 　TAG\_CW\_Txは指定した周波数と電力で無変調の連続波を発生します。TAG\_Rxは指定した周波数でIEEE802.15.4形式のパケットを受信します。TAG\_CW\_TxとTAG\_Rxの周波数は一定の周波数差で同期して指定時間毎に変更することが出来ます。
 
 (1)Backscatter\_TAGは電源がONになると、時刻・センサー情報をIEEE802.15.4形式Backscatter通信のパケットを送信します。ブロードキャスト・パケットで内容は以下です。
 
+![](media/image6.jpeg){width="5.9in" height="0.36666666666666664in"}
+
 (2)次に、以下の内容の時刻設定パケットの受信を待ちます。1秒間待って時刻設定パケットを受信しない場合は、20秒間スリーブして(1)に戻ります。
 
+![](media/image7.jpeg){width="5.033333333333333in"
+height="0.4083333333333333in"}
+
 (3)次に、時刻・センサー情報を送信して以下の内容のAlarm設定パケットの受信を待ちます。「1秒×(32ビット疑似乱数÷32ビット整数の最大値)＋0.1秒」待ってAlarm設定パケットを受信しない場合は再度、時刻・センサー情報を送信します。
+
+![](media/image8.jpeg){width="5.898611111111111in"
+height="0.38680555555555557in"}
 
 「Sens Alarm 間隔」は、10、30、60又は60の倍数で10進7桁まで設定可能です。
 
 例えば、「Sens Alarm 間隔」が30秒、「Sens Alarm
-間隔」が1秒の設定では、時刻がの秒の桁が1秒の時と31秒の時にマイクロコンピュータ内のRTC回路がSens
+時間」が1秒の設定では、時刻がの秒の桁が1秒の時と31秒の時にマイクロコンピュータ内のRTC回路がSens
 Alarm割り込みを発生し、マイクロコンピュータがスリープ状態がら動作状態に変わり時刻・センサー情報を送信します。
 
 「Init Alarm
@@ -127,18 +143,28 @@ Alarm割り込みを発生し、マイクロコンピュータがスリープ状
 
 RTC回路は±20ppmの32.768KHzの水晶発振器から供給されるクロックで動作していますので最悪25000秒(約7時間)で1秒の誤差が発生する可能性があります。このため定期的な時刻同期が必要です。
 
-Backscatter\_TAG\_NoAck\_Winソフトウエア
+３．Backscatter\_TAG\_NoAck\_Winソフトウエア
+
+このソフトウエアは、「Backscatter\_TAG\_NoAck動作ファームウエア」を搭載した「IEEE802.15.4\_Backscatter\_TAG\_2.0ハードウエア」と、
+
+Backscatter汎用ツールで紹介のLAUNCHXL-CC1352Pに「Backscatter TAG用
+簡易シグナルジェネレータ」ファームウエアを搭載したTAG\_CW\_Tx、「Backscatter
+TAG用
+IEEE802.15.4パケット送信」ファームウエアを搭載したTAG\_Cont\_Tx、「Backscatter
+TAG用IEEE802.15.4パケット受信」ファームウエアを搭載したTAG\_RxをパソコンとUSB接続して、パソコンに搭載したBackscatter\_TAG\_NoAck\_Winソフトウエアで制御するソフトウエアです。
 
 Embarcadero C++Bilder XE2を用いて開発しています。
 
 Embarcadero
 C++Bilderの最新バージョンはアカデミックであれば、1年間無償で使用することが出来ます。これを用いて改造や機能追加をすることが出来ます。
 
-　プログラムのプロジェクト(ソースコード)ファイル
+プログラムのプロジェクトホルダー：Backscatter\_TAG\_Win\_NoAck
 
-　プログラムの実行ファイル
+プログラムの実行ファイル：Backscatter\_TAG\_Win\_NoAck.exe
 
-![](media/image25.png){width="5.901388888888889in"
+この実行ファイルをダブルクリックするだけで動作します。
+
+![](media/image9.png){width="5.901388888888889in"
 height="3.4430555555555555in"}
 
 (1) COMポートの選択、
@@ -179,4 +205,15 @@ TAG用IEEE802.15.4パケット受信」の周波数の偏差は出来るだけ�
 　「TAG\_CW\_Tx And TAG\_Rx
 Stop」ボタンをクリックすると動作を停止します。
 
-(6)「Sens\_Alarm\_Interval」、「Init Alarm」
+(6)「Sens\_Alarm\_Interval」とTag1～8の「Alarm」で「Sens Alarm
+間隔」、「Sens Alarm 時間」を決めます。
+
+(7)初期状態になった時刻＋「Init Alarm」設定で「Init Alarm
+時刻」を決まます。
+
+(8)
+Tag1～8の「MAC」アドレスが一致した行に受信したTagの時刻・センサー情報を表示します。
+
+(9)「Save→Exit」ボタンをクリックして終了すると、設定値を「SetUp.txt」ファイルに保存して終了します。「SetUp.txt」ファイルの内容は起動時に読み込まれます。
+
+　「×」をクリックして終了すると設定値はファイルに保存されません。

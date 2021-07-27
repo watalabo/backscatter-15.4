@@ -1,20 +1,14 @@
-１．IEEE802.15.4\_Backscatter\_TAG\_2.0ハードウエア
+# IEEE802.15.4\_Backscatter\_TAG\_2.0ハードウエア
 
 無償の回路図設計CAD であるCADLUS
-Circuit及び無償のプリント基板設計CADであるCADLUS
-Xを用いて設計しています。
-
-CADLUS
-XのCOMPファイル、部品表、部品配置図を準備してP版.comに依頼すれば基板製造、部品調達、部品実装を行い完成したプリント基板を入手できます。
-
+Circuit及び無償のプリント基板設計CADであるCADLUS Xを用いて設計しています。
+CADLUS XのCOMPファイル、部品表、部品配置図を準備してP版.comに依頼すれば基板製造、部品調達、部品実装を行い完成したプリント基板を入手できます。
 回路の変更、追加や他の設計の参考になるように全てのデータを公開します
 
-　以下の様に3枚のボードで構成しています。
+以下の様に3枚のボードで構成しています。
 
-![](media/image1.jpeg){width="5.895833333333333in"
-height="4.423611111111111in"}
+![左から①Backscatter\_TAG\_Ant\_Dbgボード(SMAコネクタ実装)、②Backscatter\_Mainボード、③Backscatter\_TAG\_Ant\_Dbgボード(部品無し)](media/image1.jpeg "左から①Backscatter\_TAG\_Ant\_Dbgボード(SMAコネクタ実装)、②Backscatter\_Mainボード、③Backscatter\_TAG\_Ant\_Dbgボード(部品無し)")
 
-左から①Backscatter\_TAG\_Ant\_Dbgボード(SMAコネクタ実装)、②Backscatter\_Mainボード、③Backscatter\_TAG\_Ant\_Dbgボード(部品無し)
 
 ①はSMAコネクタ実装したボード、②チップアンテナを実装したボード、②Mainボードに実装したマイコンへのプログラム書き込みとデバッグ用コネクタを実装したボードの3種類を製作しています。(写真はSMAコネクタを実装したボードです)
 
@@ -23,8 +17,7 @@ Backscatter\_TAG\_Ant\_Dbgボード(SMAコネクタ実装)、Backscatter\_Main�
 
 リチウムイオンポリマー電池は400ｍAH、保護回路付き、35㎜×25㎜×5㎜、型名：DTP502535(PHR)です。
 
-![](media/image2.jpeg){width="5.888888888888889in"
-height="3.7430555555555554in"}
+![](media/image2.jpeg)
 
 長さ15㎜M2.6両メネジスペーサ、長さ3㎜M2.6中空スペーサ、長さ8㎜M2.6黄銅鍋ネジ、長さ6㎜M2.6黄銅鍋ネジを用いて組み立てています。写真では樹脂製スペーサを使用していますが、金属製でも構いません。
 
@@ -32,7 +25,7 @@ height="3.7430555555555554in"}
 
 ボードの内部の構成を以下に示します。
 
-![](media/image3.jpeg){width="5.908333333333333in" height="4.15in"}
+![](media/image3.jpeg)
 
 制御用のARMベースマイクロコンピュータSTM32F446RE、IEEE802.15.4トランシーバCC2520、Backscatter変調と受信切替用のSP3Tスイッチ及びリチウムイオン電池を用いた電源回路で構成され、SMAコネクタを介した外付けのアンテナや内臓のチップアンテナを接続可能です。
 
@@ -103,7 +96,7 @@ Backscatter\_TAG\_Main\_Assy.pdf
 
 　Backscatter\_TAG\_Ant\_Dbg\_Assy.pdf
 
-２．Backscatter\_TAG\_NoAck動作ファームウエア
+# Backscatter\_TAG\_NoAck動作ファームウエア
 
 　Backscatter\_TAG\_Mainボードに搭載のマイクロコンピュータ：STM32F446REのファームウエアの開発には無償のクラウド型開発環境であるmbedを使用しています。
 
@@ -143,7 +136,7 @@ Alarm割り込みを発生し、マイクロコンピュータがスリープ状
 
 RTC回路は±20ppmの32.768KHzの水晶発振器から供給されるクロックで動作していますので最悪25000秒(約7時間)で1秒の誤差が発生する可能性があります。このため定期的な時刻同期が必要です。
 
-３．Backscatter\_TAG\_NoAck\_Winソフトウエア
+# Backscatter\_TAG\_NoAck\_Winソフトウエア
 
 このソフトウエアは、「Backscatter\_TAG\_NoAck動作ファームウエア」を搭載した「IEEE802.15.4\_Backscatter\_TAG\_2.0ハードウエア」と、
 
